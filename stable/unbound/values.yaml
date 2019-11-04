@@ -4,8 +4,8 @@ replicaCount: 1
 # on unbound configuration see http://unbound.net/documentation/unbound.conf.html
 unbound:
   image:
-    repository: markbnj/unbound-docker
-    tag: "0.1.0"
+    repository: klutchell/unbound
+    tag: "1.9.4"
     pullPolicy: IfNotPresent
   verbosity: 1
   numThreads: 1
