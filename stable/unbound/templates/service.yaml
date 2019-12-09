@@ -24,3 +24,7 @@ spec:
     protocol: TCP
     port: {{ .Values.unbound.serverPort }}
     targetPort: dns-tcp
+  - name: control-tcp
+    protocol: TCP
+    port: {{ .Values.unbound.controlPort }}
+    targetPort: control-tcp

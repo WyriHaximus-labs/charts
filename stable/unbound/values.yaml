@@ -9,9 +9,10 @@ unbound:
     pullPolicy: IfNotPresent
   verbosity: 1
   numThreads: 1
-  statsInterval: 0
+  statsInterval: 1
   statsCumulative: "no"
   serverPort: 53
+  controlPort: 8953
 
 # values that pertain to the exechealthz container, for more information see
 # https://github.com/kubernetes/contrib/tree/master/exec-healthz
@@ -34,8 +35,8 @@ affinity: {}
 # to query the resolver directly, you'll at least need to allow the
 # clusterIpV4Cidr range.
 
-# allowedIpRanges:
-# - "10.10.10.10/20"
+allowedIpRanges:
+ - "10.10.10.10/20"
 
 # You can set as many forward zones as needed by specifying the zone name
 # and forward hosts. Forward hosts can be set by hostname or ip.

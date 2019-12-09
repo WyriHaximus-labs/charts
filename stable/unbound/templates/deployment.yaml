@@ -43,6 +43,9 @@ spec:
         - name: "dns-tcp"
           containerPort: {{ .Values.unbound.serverPort }}
           protocol: "TCP"
+        - name: "control-tcp"
+          containerPort: {{ .Values.unbound.controlPort }}
+          protocol: "TCP"
         volumeMounts:
         - name: "unbound-conf"
           mountPath: "/etc/unbound/"

@@ -14,6 +14,8 @@ data:
         num-threads: {{ .Values.unbound.numThreads }}
         directory: "/etc/unbound"
         port: {{ .Values.unbound.serverPort }}
+        control-port: {{ .Values.unbound.controlPort }}
+        control-use-cert: no
         so-reuseport: yes
         do-daemonize: no
         logfile: ""
