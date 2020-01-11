@@ -1,0 +1,19 @@
+{{- if gt (.Values.replicaCount | int) 1 }}
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    app: {{ template "telegraf.name" . }}
+    chart: {{ template "telegraf.chart" . }}
+    component: "{{ .Values.name }}"
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "telegraf.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "telegraf.name" . }}
+      release: {{ .Release.Name }}
+      component: "{{ .Values.name }}"
+  minAvailable: {{ .Values.minAvailable }}
+{{- end }}

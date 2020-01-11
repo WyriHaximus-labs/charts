@@ -3,6 +3,8 @@
 ## ref: https://hub.docker.com/r/library/telegraf/tags/
 
 replicaCount: 1
+## When replicaCount is raised above 1 aa pod disruption budget will be created and minAvailable will be used to define the minimum amount of available pods
+minAvailable: 1
 
 image:
   repo: "telegraf"
